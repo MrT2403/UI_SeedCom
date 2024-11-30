@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         customBlue: "#E6F1FF",
         blackArrow: "#171923",
+        bgDiscount: "#F4DE6A",
+        saving: "#38A169",
+        itemName: "#4A5568",
+        bgImg: "#F8FAFC",
       },
     },
   },

@@ -2,12 +2,12 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full h-16 flex items-center pl-6 bg-white">
+    <header className="w-full h-16 flex items-center pl-6 bg-white gap-8">
       <div className="flex items-center gap-2">
         <img src="./assets/symbol.png" alt="Logo" className="w-8 h-8" />
         <h1 className="font-bold text-xl">OneLife</h1>
       </div>
-      <div className="flex-1 mx-6 relative">
+      <div className="flex-1 relative">
         <input
           type="text"
           placeholder="Tìm sản phẩm"
@@ -19,7 +19,7 @@ const Header = () => {
           className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5"
         />
       </div>
-      <div className="text-gray-600 text-sm ml-auto">Tạp chí</div>
+      <div className="text-gray-600 text-sm">Tạp chí</div>
     </header>
   );
 };
