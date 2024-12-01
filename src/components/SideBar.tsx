@@ -1,22 +1,28 @@
 import React from "react";
 
-const SideBar = () => {
-  const menuItems = [
+interface MenuItem {
+  img: string;
+  text: string;
+}
+
+const SideBar: React.FC = () => {
+  const menuItems: MenuItem[] = [
     { img: "vegetable.png", text: "Rau, củ, quả" },
     { img: "meat.png", text: "Thịt, cá, trứng, hải sản" },
     { img: "milk.png", text: "Sữa, bơ, phô mai" },
     { img: "cake.png", text: "Thực phẩm đông lạnh" },
-    { img: "cake.png", text: "Bánh kẹo, ngũ cốc ăn sáng" },
-    { img: "oil.png", text: "Dầu ăn, nước chấm, gia vị" },
-    { img: "cake.png", text: "Gạo, đậu, bột, đồ khô" },
+    { img: "cake.png", text: "Thực phẩm đông lạnh" },
+    { img: "cake.png", text: "Thực phẩm đông lạnh" },
+    { img: "cake.png", text: "Thực phẩm đông lạnh" },
+    { img: "cake.png", text: "Thực phẩm đông lạnh" },
   ];
 
   return (
-    <aside className=" bg-white p-4">
-      <ul className="space-y-4">
-        {menuItems.map((item, index) => (
+    <aside className="bg-white ">
+      <ul className="space-y-4 pt-2 pr-2">
+        {menuItems.map((item) => (
           <li
-            key={index}
+            key={item.text}
             className="w-[164px] h-[56px] flex items-center p-3 rounded-lg cursor-pointer hover:bg-customBlue transition-colors"
           >
             <img

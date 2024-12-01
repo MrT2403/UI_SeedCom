@@ -1,11 +1,11 @@
 import React from "react";
-import SideBar from "./components/SideBar";
-import Carousel from "./components/Carousel";
-import CategoryRow from "./components/CategoryRow";
-import ProductGrid from "./components/ProductGrid";
-import Header from "./components/Header";
+import SideBar from "./components/SideBar.tsx";
+import Carousel from "./components/Carousel.tsx";
+import CategoryRow from "./components/CategoryRow.tsx";
+import ProductGrid from "./components/ProductGrid.tsx";
+import Header from "./components/Header.tsx";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="w-[1440px] mx-auto min-h-screen">
       <Header />
@@ -20,6 +20,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

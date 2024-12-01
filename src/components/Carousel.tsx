@@ -1,6 +1,6 @@
 import React from "react";
 
-const Carousel = () => {
+const Carousel: React.FC = () => {
   return (
     <div className="relative w-full max-w-[1224px] h-[306px] bg-blue-300 rounded-lg mx-auto mb-6 p-4">
       <div className="absolute inset-0 flex justify-between items-center px-4">

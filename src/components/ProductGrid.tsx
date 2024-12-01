@@ -1,7 +1,18 @@
 import React from "react";
 
-const ProductGrid = () => {
-  const products = [
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  originalPrice: string;
+  discount: string;
+  image: string;
+  origin: string;
+  saving: string;
+}
+
+const ProductGrid: React.FC = () => {
+  const products: Product[] = [
     {
       id: 1,
       name: "Táo Mỹ & Nam Phi túi 1.5kg (1 Túi)",
@@ -19,7 +30,7 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
     {
@@ -29,7 +40,7 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
     {
@@ -39,7 +50,7 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
     {
@@ -49,7 +60,7 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
     {
@@ -59,7 +70,7 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
     {
@@ -69,17 +80,32 @@ const ProductGrid = () => {
       originalPrice: "1.500.000 đ",
       discount: "-10%",
       image: "./assets/cake.png",
-      origin: "Mỹ",
+      origin: "Úc",
       saving: "Tiết kiệm 12k",
     },
   ];
 
   return (
     <div>
-      <div className="bg-green-100 p-4 rounded mb-4">
-        <h2 className="font-bold text-lg">Rau Củ Quả</h2>
-        <p className="text-green-700">Hàng mới về - bán trong ngày</p>
+      <div className="flex items-center bg-bgVeget rounded mb-4 relative min-h-[96px]">
+        <div className="z-10">
+          <h2 className="font-semibold text-black text-lg leading-relaxed p-2 px-3 left-[12px] top-0 bg-veget absolute max-w-[100px] rounded-bl-lg whitespace-pre">
+            Rau Củ
+            <br />
+            Quả
+          </h2>
+          <p className="text-white text-xs leading-tight p-1 bg-newPro rounded-tr-lg rounded-bl-lg absolute pb-[6px] border border-white left-16">
+            <strong>Hàng mới về</strong>
+            <br /> bán trong ngày
+          </p>
+        </div>
+        <img
+          src="./assets/veget.png"
+          alt="Rau Củ"
+          className="absolute h-full object-cover rounded-r-lg left-32"
+        />
       </div>
+
       <div className="grid grid-cols-7 gap-4">
         {products.map((product) => (
           <div
@@ -88,9 +114,11 @@ const ProductGrid = () => {
             style={{ width: "164px", height: "300px" }}
           >
             <div className="bg-bgImg rounded-lg h-40 p-2 relative mb-1">
-              <span className="absolute top-0 right-0 bg-bgDiscount text-black font-bold text-lg px-2 py-1 rounded-bl-lg">
-                {product.discount}
-              </span>
+              {product.discount && (
+                <span className="absolute top-0 right-0 bg-bgDiscount text-black font-bold text-lg p-1 text-sm rounded-tr-lg rounded-bl-lg">
+                  {product.discount}
+                </span>
+              )}
               <img
                 src={product.image}
                 alt={product.name}
@@ -105,13 +133,23 @@ const ProductGrid = () => {
                 </span>
               </div>
             </div>
-            <p className="text-red-500 text-lg font-bold">{product.price}</p>
-            <div className="flex gap-2 items-center mt-1 text-xs mb-4">
-              <p className="line-through text-gray-500">
+            {product.discount ? (
+              <>
+                <p className="text-red-500 text-lg font-bold">
+                  {product.price}
+                </p>
+                <div className="flex gap-2 items-center mt-1 text-xs mb-4">
+                  <p className="line-through text-gray-500">
+                    {product.originalPrice}
+                  </p>
+                  <p className="text-green-600 font-bold">{product.saving}</p>
+                </div>
+              </>
+            ) : (
+              <p className="text-black text-lg font-bold">
                 {product.originalPrice}
               </p>
-              <p className="text-green-600 font-bold">{product.saving}</p>
-            </div>
+            )}
             <h3 className="text-itemName text-sm font-normal">
               {product.name}
             </h3>
